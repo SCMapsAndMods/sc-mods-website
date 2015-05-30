@@ -5,6 +5,8 @@
 
 These installation instructions assume you are on a Mac using MAMP, Git, and putting your repos in `~/Desktop/repos`. Installation instructions for other operating systems should be similar.
 
+## Initial Setup
+
 1. Checkout this repo to `~/Deskop/repos` (`git clone git@github.com:SCMapsAndMods/sc-mods-website.git`)
 2. Install [Vagrant](http://www.vagrantup.com/downloads.html)
 2. Install [VirtualBox](https://www.virtualbox.org)
@@ -26,4 +28,14 @@ These installation instructions assume you are on a Mac using MAMP, Git, and put
 9. Go to `homestead.app` in your browser
 
 See [Homestead Installation and Setup](http://laravel.com/docs/5.0/homestead#installation-and-setup) for more details.
+
+## Getting Started
+
+1. Install [Composer](https://getcomposer.org/) globally
+    - Please **never** track `composer.phar`. It will be ignored in `.gitignore` in case you cannot install globally.
+2. 
+
+## Recommended
+
+1. Install [PhpStorm](https://www.jetbrains.com/phpstorm/) (Recommended editor of choice)
 
