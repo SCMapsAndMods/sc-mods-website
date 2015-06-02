@@ -13,19 +13,43 @@ These installation instructions assume you are on a Mac using MAMP, Git, and put
 3. In the terminal, run: `vagrant box add laravel/homestead`
     - Use choice `1` to install the virtualbox version
     - The box might take a while to download
-4. `git clone https://github.com/laravel/homestead.git Homestead` into your `/htdocs` folder (if you are using MAMP)
+4. `git clone https://github.com/laravel/homestead.git Homestead` (we are pulling it to `~/Desktop/repos/Homestead`)
     - `cd Homestead`
     - `bash init.sh`
     - `cd ~/.homestead`
     - `vi Homestead.yaml`
-        - Set `provider: virtualbox`
-        - Set `folders: \- map ~/Desktop/repos/sc-mods-website/app`
+```
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ~/Desktop/repos/sc-mods-website/laravel
+      to: /home/vagrant/code
+
+sites:
+    - map: scmods.app
+      to: /home/vagrant/code/public
+
+databases:
+    - homestead
+
+variables:
+    - key: APP_ENV
+      value: local
+```
 5. `ssh-keygen -t rsa -C "you@homestead"`
-6. `cd /Applications/MAMP/htdocs/Homestead`
+6. `cd ~/Desktop/repos/Homestead`
 7. `sudo vi /etc/hosts`
-    - Add `192.168.10.10 homestead.app`
+    - Add `127.0.0.1 scmods.app`
 8. `vagrant up`
-9. Go to `homestead.app` in your browser
+9. Go to `http://scmods.app:8000` in your browser
 
 See [Homestead Installation and Setup](http://laravel.com/docs/5.0/homestead#installation-and-setup) for more details.
 
@@ -33,7 +57,9 @@ See [Homestead Installation and Setup](http://laravel.com/docs/5.0/homestead#ins
 
 1. Install [Composer](https://getcomposer.org/) globally
     - Please **never** track `composer.phar`. It will be ignored in `.gitignore` in case you cannot install globally.
-2. 
+2. `composer global require "laravel/installer=~1.1"`
+    - Add to path: `sudo vi /etc/paths`
+
 
 ## Recommended
 
