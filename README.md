@@ -60,6 +60,15 @@ See [Homestead Installation and Setup](http://laravel.com/docs/5.0/homestead#ins
 2. `composer global require "laravel/installer=~1.1"`
     - Add to path: `sudo vi /etc/paths`
 
+## Migrations
+
+You must run migrations from within Vagrant:
+
+```cmd
+ssh vagrant@127.0.0.1 -p 2222
+cd /home/vagrant/code/
+php artisan migrate
+```
 
 ## Recommended
 
